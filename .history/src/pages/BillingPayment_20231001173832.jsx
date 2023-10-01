@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const BillingPayment = () => {
   const [invoices, setInvoices] = useState([
-    { id: 1, invoiceNumber: "INV-001", amount: 200, status: "Paid" },
-    { id: 2, invoiceNumber: "INV-002", amount: 150, status: "Paid" },
-    { id: 3, invoiceNumber: "INV-003", amount: 250, status: "Pending" },
+    { id: 1, invoiceNumber: 'INV-001', amount: 200, status: 'Paid' },
+    { id: 2, invoiceNumber: 'INV-002', amount: 150, status: 'Paid' },
+    { id: 3, invoiceNumber: 'INV-003', amount: 250, status: 'Pending' },
   ]);
 
   const [selectedInvoice, setSelectedInvoice] = useState(null);
-  const [newPayment, setNewPayment] = useState({ amount: "", method: "" });
+  const [newPayment, setNewPayment] = useState({ amount: '', method: '' });
   const [transactionHistory, setTransactionHistory] = useState([]);
 
-  const [filterStatus, setFilterStatus] = useState("All"); // Filter by 'All', 'Paid', 'Pending'
+  const [filterStatus, setFilterStatus] = useState('All'); // Filter by 'All', 'Paid', 'Pending'
 
   const handleInvoiceClick = (invoice) => {
     setSelectedInvoice(invoice);
@@ -28,7 +28,7 @@ const BillingPayment = () => {
       setInvoices(updatedInvoices);
       setSelectedInvoice(null);
       // Clear the input fields
-      setNewPayment({ amount: "", method: "" });
+      setNewPayment({ amount: '', method: '' });
 
       // Add the payment to the transaction history
       setTransactionHistory([
@@ -43,24 +43,17 @@ const BillingPayment = () => {
     }
   };
 
-  const filteredInvoices =
-    filterStatus === "All"
-      ? invoices
-      : invoices.filter((invoice) => invoice.status === filterStatus);
+  const filteredInvoices = filterStatus === 'All' ? invoices : invoices.filter((invoice) => invoice.status === filterStatus);
 
   return (
     <div className="container mx-auto p-4">
       <div className="my-4 p-4 border rounded-lg">
-        <h2 className="text-lg text-white font-semibold mb-4">
-          Billing and Payment
-        </h2>
+        <h2 className="text-lg text-white font-semibold mb-4">Billing and Payment</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <h3 className="text-lg text-white font-semibold mb-2">Invoices</h3>
             <div className="mb-2">
-              <label htmlFor="filterStatus" className="text-white">
-                Filter by Status:
-              </label>
+              <label htmlFor="filterStatus" className="text-white">Filter by Status:</label>
               <select
                 id="filterStatus"
                 className="w-full border rounded-md py-2 px-3"
@@ -78,14 +71,14 @@ const BillingPayment = () => {
                   key={invoice.id}
                   className={`cursor-pointer ${
                     selectedInvoice && selectedInvoice.id === invoice.id
-                      ? "bg-blue-200"
-                      : "hover:bg-gray-100"
+                      ? 'bg-blue-200'
+                      : 'hover:bg-gray-100'
                   } p-2 rounded-lg`}
                   onClick={() => handleInvoiceClick(invoice)}
                 >
                   <span className="text-gray-800 font-semibold">
                     {invoice.invoiceNumber} - ${invoice.amount}
-                  </span>{" "}
+                  </span>{' '}
                   ({invoice.status})
                 </li>
               ))}
@@ -94,9 +87,7 @@ const BillingPayment = () => {
           <div>
             {selectedInvoice && (
               <>
-                <h3 className="text-lg text-white font-semibold mb-2">
-                  Selected Invoice
-                </h3>
+                <h3 className="text-lg text-white font-semibold mb-2">Selected Invoice</h3>
                 <div className="mb-2">
                   <p>Invoice Number: {selectedInvoice.invoiceNumber}</p>
                 </div>
@@ -106,18 +97,14 @@ const BillingPayment = () => {
                 <div className="mb-2">
                   <p>Status: {selectedInvoice.status}</p>
                 </div>
-                <h3 className="text-lg text-white font-semibold mt-4 mb-2">
-                  Add Payment
-                </h3>
+                <h3 className="text-lg text-white font-semibold mt-4 mb-2">Add Payment</h3>
                 <div className="mb-2">
                   <input
                     type="number"
                     placeholder="Payment Amount"
                     className="w-full border rounded-md py-2 px-3"
                     value={newPayment.amount}
-                    onChange={(e) =>
-                      setNewPayment({ ...newPayment, amount: e.target.value })
-                    }
+                    onChange={(e) => setNewPayment({ ...newPayment, amount: e.target.value })}
                   />
                 </div>
                 <div className="mb-2">
@@ -126,9 +113,7 @@ const BillingPayment = () => {
                     placeholder="Payment Method"
                     className="w-full border rounded-md py-2 px-3"
                     value={newPayment.method}
-                    onChange={(e) =>
-                      setNewPayment({ ...newPayment, method: e.target.value })
-                    }
+                    onChange={(e) => setNewPayment({ ...newPayment, method: e.target.value })}
                   />
                 </div>
                 <button
@@ -144,16 +129,13 @@ const BillingPayment = () => {
         </div>
       </div>
       <div className="my-4 p-4 border rounded-lg">
-        <h3 className="text-lg text-white font-semibold mb-2">
-          Transaction History
-        </h3>
+        <h3 className="text-lg text-white font-semibold mb-2">Transaction History</h3>
         <ul className="space-y-2">
           {transactionHistory.map((transaction, index) => (
             <li key={index} className="p-2 rounded-lg bg-gray-200">
               <span className="text-gray-800">
-                Invoice: {transaction.invoiceNumber} - $
-                {transaction.paymentAmount}
-              </span>{" "}
+                Invoice: {transaction.invoiceNumber} - ${transaction.paymentAmount}
+              </span>{' '}
               ({transaction.date})
             </li>
           ))}
