@@ -22,19 +22,6 @@ const ReservationHome = () => {
   const [numAdults, setNumAdults] = useState(1);
   const [numChildren, setNumChildren] = useState(0);
 
-  const handleAdultsChange = (e) => {
-    const newNumAdults = parseInt(e.target.value);
-    if (!isNaN(newNumAdults) && newNumAdults >= 0) {
-      setNumAdults(newNumAdults);
-    }
-  };
-  
-  const handleChildrenChange = (e) => {
-    const newNumChildren = parseInt(e.target.value);
-    if (!isNaN(newNumChildren) && newNumChildren >= 0) {
-      setNumChildren(newNumChildren);
-    }
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
 

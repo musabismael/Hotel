@@ -13,7 +13,7 @@ function Card({ link, icon, title, onClick }) {
           <FontAwesomeIcon
             icon={icon}
             size="2xs"
-            className=" w-auto p-5 h-auto object-cover"
+            className=" w-auto p-20 h-auto object-cover"
             style={{color: "#bbc9e2",}}
           />
 
