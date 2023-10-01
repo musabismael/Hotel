@@ -1,0 +1,26 @@
+import Header from "./component/Header";
+import Sidebar from "./component/Sidebar";
+import headImage from "./assets/bed.png"
+
+function App() {
+  return (
+    <div className="flex bg-gradient-to-r from-sky-900 via-sky-700 to-sky-500">
+      <Sidebar />
+
+      <div className="flex-1">
+        <Header />
+        <main className="p-4">
+          {/* <img
+            src={headImage}
+            alt="Main Image"
+            className=" w-full"
+          /> */}
+       
+
+        </main>
+      </div>
+    </div>
+  );
+}
+
+export default App;
