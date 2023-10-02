@@ -54,7 +54,7 @@ const RoomManagement = () => {
         <h2 className="text-lg text-gray-800 font-semibold mb-4">Room Management</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h3 className="text-lg text-gray-800 font-semibold mb-2">Room Types</h3>
+            <h3 className="text-lg text-white font-semibold mb-2">Room Types</h3>
             <ul className="space-y-2">
               {roomTypes.map((roomType) => (
                 <li
@@ -139,7 +139,7 @@ const RoomManagement = () => {
                 )}
               </>
             )}
-            <h3 className="text-lg text-gray-800 font-semibold mt-4 mb-2">Add New Room Type</h3>
+            <h3 className="text-lg text-white font-semibold mt-4 mb-2">Add New Room Type</h3>
             <div className="mb-2">
               <input
                 type="text"

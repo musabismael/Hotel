@@ -13,12 +13,18 @@ import InventoryManagement from "./pages/InventoryManagement";
 import ReportingAnalytics from "./pages/ReportingAnalytics";
 import SecurityAccessControl from "./pages/SecurityAccessControl";
 import PointOfSale from "./pages/PointOfSale";
+import WelcomePage from "./pages/WelcomePage";
+
 import CRM from "./pages/CRM"; // Import the CRM component
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPageLayout />,
     children: [
+      {
+        path: "/",
+        element: <WelcomePage />,
+      },
       {
         path: "/reservation_management",
         element: <ReservationManagement />,

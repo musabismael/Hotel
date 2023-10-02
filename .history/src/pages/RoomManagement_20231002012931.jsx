@@ -139,7 +139,7 @@ const RoomManagement = () => {
                 )}
               </>
             )}
-            <h3 className="text-lg text-gray-800 font-semibold mt-4 mb-2">Add New Room Type</h3>
+            <h3 className="text-lg text-white font-semibold mt-4 mb-2">Add New Room Type</h3>
             <div className="mb-2">
               <input
                 type="text"

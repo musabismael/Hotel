@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Card({ link, icon, title, onClick }) {
   return (
     <div
-      className="max-w-sm  mx-1 my-3 cursor-pointer shadow-lg rounded-lg overflow-hidden  transition duration-300 transform hover:scale-105  "
+      className="max-w-sm  mx-1 my-3 cursor-pointer shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:scale-105  h"
       onClick={onClick}
     >
-      <div className="bg-sky-800 rounded-lg overflow-hidden shadow-lg flex flex-col items-center justify-center ">
+      <div className="bg-sky-800 rounded-lg overflow-hidden shadow-lg flex flex-col items-center justify-center">
         <Link to={link} className="text-blue-600 hover:text-blue-800">
           <FontAwesomeIcon
             icon={icon}

@@ -175,7 +175,7 @@ const BillingPayment = () => {
               />
             </div>
             <button
-              className="bg-blue-500 text-white py-2 px-4 rounded-md"
+              className="bg-blue-500 text-gray-800 py-2 px-4 rounded-md"
               onClick={simulatePayment}
             >
               Process Payment
@@ -195,7 +195,7 @@ const BillingPayment = () => {
             <FontAwesomeIcon icon={faCheckCircle} className="payment-icon success-icon" />
             <p className="payment-text">Payment Completed</p>
             <button
-              className="bg-blue-500 text-white py-2 px-4 rounded-md mt-4"
+              className="bg-blue-500 text-gray-800 py-2 px-4 rounded-md mt-4"
               onClick={resetPaymentStatus}
             >
               Make Another Payment
@@ -208,7 +208,7 @@ const BillingPayment = () => {
             <FontAwesomeIcon icon={faMoneyBill} className="payment-icon error-icon" />
             <p className="payment-text">Payment Failed</p>
             <button
-              className="bg-blue-500 text-white py-2 px-4 rounded-md mt-4"
+              className="bg-blue-500 text-gray-800 py-2 px-4 rounded-md mt-4"
               onClick={resetPaymentStatus}
             >
               Try Again

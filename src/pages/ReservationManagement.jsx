@@ -1,11 +1,14 @@
+
+
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const ITEMS_PER_PAGE = 5;
 
 const ReservationHome = () => {
-  
   const [name, setName] = useState('');
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
@@ -28,13 +31,14 @@ const ReservationHome = () => {
       setNumAdults(newNumAdults);
     }
   };
-  
+
   const handleChildrenChange = (e) => {
     const newNumChildren = parseInt(e.target.value);
     if (!isNaN(newNumChildren) && newNumChildren >= 0) {
       setNumChildren(newNumChildren);
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -105,10 +109,10 @@ const ReservationHome = () => {
   return (
     <div className="container mx-auto p-4">
       <div className="my-4 p-4 border rounded-lg">
-        <h2 className="text-lg text-gray-100 font-semibold">Make a Reservation</h2>
+        <h2 className="text-lg text-gray-800 font-semibold">Make a Reservation</h2>
         <form onSubmit={handleSubmit} className="mt-2">
           <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-100 font-semibold">
+            <label htmlFor="name" className="block text-gray-800 font-semibold">
               Name
             </label>
             <input
@@ -120,7 +124,7 @@ const ReservationHome = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="checkInDate" className="block text-gray-100 font-semibold">
+            <label htmlFor="checkInDate" className="block text-gray-800 font-semibold">
               Check-In Date
             </label>
             <input
@@ -132,7 +136,7 @@ const ReservationHome = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="checkOutDate" className="block text-gray-100 font-semibold">
+            <label htmlFor="checkOutDate" className="block text-gray-800 font-semibold">
               Check-Out Date
             </label>
             <input
@@ -144,7 +148,7 @@ const ReservationHome = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="roomType" className="block text-gray-100 font-semibold">
+            <label htmlFor="roomType" className="block text-gray-800 font-semibold">
               Room Type
             </label>
             <select
@@ -164,7 +168,7 @@ const ReservationHome = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label htmlFor="numAdults" className="block text-gray-100 font-semibold">
+            <label htmlFor="numAdults" className="block text-gray-800 font-semibold">
               Adults
             </label>
             <input
@@ -176,7 +180,7 @@ const ReservationHome = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="numChildren" className="block text-gray-100 font-semibold">
+            <label htmlFor="numChildren" className="block text-gray-800 font-semibold">
               Children
             </label>
             <input
@@ -196,53 +200,65 @@ const ReservationHome = () => {
         </form>
       </div>
       <div className="mt-4">
-        <input
-          type="text"
-          placeholder="Search by name, date, or status"
-          className="w-full border rounded-md py-2 px-3"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-      <div className="mt-4 flex flex-col lg:flex-row">
-        <div className="lg:w-1/2 lg:pr-4">
-          <h2 className="text-lg text-gray-100 font-semibold">Reservations</h2>
-          <ul className="mt-2">
-            {displayedReservations.map((reservation, index) => (
-              <li key={index} className="border rounded-md p-2 mb-2">
-                <strong className="text-gray-100">{reservation.name}</strong>
-                <p>
-                  Check-In: {reservation.checkInDate} - Check-Out: {reservation.checkOutDate}
-                </p>
-                <p>Status: {reservation.status}</p>
-                <p>Room Type: {reservation.roomType}</p>
-                <p>
-                  Guests: {reservation.numAdults} Adults, {reservation.numChildren} Children
-                </p>
+        <nav className="flex justify-center">
+          <ul className="flex">
+            {Array.from({ length: totalPageCount }).map((_, page) => (
+              <li key={page} className="ml-2">
                 <button
-                  onClick={() => deleteReservation(index)}
-                  className="bg-red-500 text-white py-1 px-2 rounded-md ml-2"
+                  className={`${
+                    page + 1 === currentPage
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-blue-500 hover:text-white'
+                  } py-2 px-3 rounded-md`}
+                  onClick={() => setCurrentPage(page + 1)}
                 >
-                  Delete
-                </button>
-                <button
-                  onClick={() => updateReservationStatus(index, 'Confirmed')}
-                  className="bg-green-500 text-white py-1 px-2 rounded-md ml-2"
-                >
-                  Confirm
-                </button>
-                <button
-                  onClick={() => updateReservationStatus(index, 'Cancelled')}
-                  className="bg-yellow-500 text-white py-1 px-2 rounded-md ml-2"
-                >
-                  Cancel
+                  {page + 1}
                 </button>
               </li>
             ))}
           </ul>
+        </nav>
+      </div>
+      <div className="mt-4 flex flex-col lg:flex-row">
+        <div className="lg:w-1/2 lg:pr-4">
+          <h2 className="text-lg text-gray-800 font-semibold">Reservations</h2>
+          <ul className="mt-2">
+            {/* List of reservations */}
+            {displayedReservations.map((reservation, index) => (
+               <li key={index} className="border rounded-md p-2 mb-2">
+               <strong className="text-gray-800">{reservation.name}</strong>
+               <p>
+                 Check-In: {reservation.checkInDate} - Check-Out: {reservation.checkOutDate}
+               </p>
+               <p>Status: {reservation.status}</p>
+               <p>Room Type: {reservation.roomType}</p>
+               <p>
+                 Guests: {reservation.numAdults} Adults, {reservation.numChildren} Children
+               </p>
+               <button
+                 onClick={() => deleteReservation(index)}
+                 className="bg-red-500 text-white py-1 px-2 rounded-md ml-2"
+               >
+                 <FontAwesomeIcon icon={faTrash} /> Delete
+               </button>
+               <button
+                 onClick={() => updateReservationStatus(index, 'Confirmed')}
+                 className="bg-green-500 text-white py-1 px-2 rounded-md ml-2"
+               >
+                 <FontAwesomeIcon icon={faCheck} /> Confirm
+               </button>
+               <button
+                 onClick={() => updateReservationStatus(index, 'Cancelled')}
+                 className="bg-yellow-500 text-white py-1 px-2 rounded-md ml-2"
+               >
+                 <FontAwesomeIcon icon={faTimes} /> Cancel
+               </button>
+             </li>
+            ))}
+          </ul>
         </div>
         <div className="lg:w-1/2 mt-4 lg:mt-0">
-          <h2 className="text-lg text-gray-100 font-semibold">Reservation Details</h2>
+          <h2 className="text-lg text-gray-800 font-semibold">Reservation Details</h2>
           <div className="border rounded-md p-4 mt-2">
             <Calendar
               onChange={setSelectedDate}
@@ -250,17 +266,18 @@ const ReservationHome = () => {
               calendarType="US"
               className="border rounded-md mt-2"
             />
-            <p className="text-gray-100 mt-2">Selected Date: {selectedDate.toDateString()}</p>
-            <p className="text-gray-100 mb-2">
+            <p className="text-gray-800 mt-2">Selected Date: {selectedDate.toDateString()}</p>
+            <p className="text-gray-800 mb-2">
               Rate: ${selectedRoomType.rate} per night
             </p>
-            <p className="text-gray-100 mb-2">Total Cost: ${calculateTotalCost()}</p>
+            <p className="text-gray-800 mb-2">Total Cost: ${calculateTotalCost()}</p>
           </div>
         </div>
       </div>
       <div className="mt-4">
         <nav className="flex justify-center">
           <ul className="flex">
+            {/* Pagination buttons */}
             {Array.from({ length: totalPageCount }).map((_, page) => (
               <li key={page} className="ml-2">
                 <button

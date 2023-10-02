@@ -149,7 +149,7 @@ const HousekeepingMaintenance = () => {
               </select>
             </div>
             <div className="mb-2">
-              <label htmlFor="sortTaskStatus" className="text-gray-800">
+              <label htmlFor="sortTaskStatus" className="text-white">
                 Sort by Status:
               </label>
               <select
@@ -219,11 +219,11 @@ const HousekeepingMaintenance = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-lg text-gray-800 font-semibold mb-2">
+            <h3 className="text-lg text-white font-semibold mb-2">
               Maintenance Requests
             </h3>
             <div className="mb-2">
-              <label htmlFor="filterRequestStatus" className="text-gray-800">
+              <label htmlFor="filterRequestStatus" className="text-white">
                 Filter by Status:
               </label>
               <select
@@ -300,7 +300,7 @@ const HousekeepingMaintenance = () => {
       <div className="my-4 p-4 border rounded-lg">
         {selectedTask && (
           <>
-            <h3 className="text-lg text-gray-800 font-semibold mb-2">
+            <h3 className="text-lg text-white font-semibold mb-2">
               Task Details
             </h3>
             <div className="mb-2">

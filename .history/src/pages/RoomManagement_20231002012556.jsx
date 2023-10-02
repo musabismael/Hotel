@@ -76,7 +76,7 @@ const RoomManagement = () => {
           <div>
             {selectedRoomType && (
               <>
-                <h3 className="text-lg text-white font-semibold mb-2">
+                <h3 className="text-lg text-gray-800 font-semibold mb-2">
                   {isEditing ? 'Edit Room Type' : 'Selected Room Type'}
                 </h3>
                 <div className="mb-2">
@@ -114,7 +114,7 @@ const RoomManagement = () => {
                 {isEditing ? (
                   <button
                     type="button"
-                    className="bg-green-500 text-white py-2 px-4 rounded-md"
+                    className="bg-green-500 text-gray-800 py-2 px-4 rounded-md"
                     onClick={handleUpdateRoomType}
                   >
                     Update Room Type
@@ -123,14 +123,14 @@ const RoomManagement = () => {
                   <>
                     <button
                       type="button"
-                      className="bg-red-500 text-white py-2 px-4 rounded-md"
+                      className="bg-red-500 text-gray-800 py-2 px-4 rounded-md"
                       onClick={handleDeleteRoomType}
                     >
                       Delete Room Type
                     </button>
                     <button
                       type="button"
-                      className="bg-blue-500 text-white py-2 px-4 rounded-md ml-2"
+                      className="bg-blue-500 text-gray-800 py-2 px-4 rounded-md ml-2"
                       onClick={handleEditRoomType}
                     >
                       Edit Room Type
@@ -169,7 +169,7 @@ const RoomManagement = () => {
             </div>
             <button
               type="button"
-              className="bg-green-500 text-white py-2 px-4 rounded-md"
+              className="bg-green-500 text-gray-800 py-2 px-4 rounded-md"
               onClick={handleAddRoomType}
             >
               Add Room Type
