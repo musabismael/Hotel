@@ -1,0 +1,53 @@
+/* Add some spacing to the container */
+.container {
+    padding: 2rem;
+  }
+  
+  /* Style the list of room types */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  li:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Style the selected room type */
+  .selected-room {
+    background-color: #cceeff;
+  }
+  
+  /* Style the buttons */
+  button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  }
+  
+  button:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Add margin to the top button */
+  .top-button {
+    margin-top: 1rem;
+  }
+  
+  /* Add margin to the left button */
+  .left-button {
+    margin-left: 0.5rem;
+  }
+  

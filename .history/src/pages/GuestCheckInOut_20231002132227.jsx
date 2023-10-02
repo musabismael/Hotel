@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheck,
-  faTimes,
-  faComment,
-  faReceipt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import "../styles/GuestCheckOut.css"; // Import your CSS file here
+import "./GuestCheckOut.css"; // Import your CSS file here
 
 const GuestCheckOut = () => {
   const [reservationId, setReservationId] = useState("");
@@ -18,12 +13,6 @@ const GuestCheckOut = () => {
   const [feedback, setFeedback] = useState("");
   const [isFeedbackSubmitted, setIsFeedbackSubmitted] = useState(false);
   const [isReceiptGenerated, setIsReceiptGenerated] = useState(false);
-  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
-
-  // Animation effect to fade in elements
-  useEffect(() => {
-    setIsFeedbackVisible(true);
-  }, []);
 
   const handleCheckOut = () => {
     // Simulate a check-out process here (replace with actual logic)
@@ -88,7 +77,6 @@ const GuestCheckOut = () => {
     setFeedback("");
     setIsFeedbackSubmitted(false);
     setIsReceiptGenerated(false);
-    setIsFeedbackVisible(false); // Hide feedback section
   };
 
   return (
@@ -118,12 +106,12 @@ const GuestCheckOut = () => {
               type="submit"
               className="bg-red-500 text-white py-2 px-4 rounded-md transition transform hover:scale-105"
             >
-              <FontAwesomeIcon icon={faCheck} /> Check-Out
+              Check-Out
             </button>
           </form>
         ) : (
           <>
-            <div className={`mt-4 ${isFeedbackVisible ? 'fade-in' : ''}`}>
+            <div className="mt-4">
               <p className="text-green-600 font-semibold">
                 Guest {reservationData.name} has been successfully checked out.
               </p>
@@ -161,7 +149,7 @@ const GuestCheckOut = () => {
                     onClick={handleFeedbackSubmit}
                     className="bg-blue-500 text-white py-2 px-4 rounded-md mt-2"
                   >
-                    <FontAwesomeIcon icon={faComment} /> Submit Feedback
+                    Submit Feedback
                   </button>
                 </>
               )}
@@ -171,7 +159,7 @@ const GuestCheckOut = () => {
                   onClick={handleGenerateReceipt}
                   className="bg-green-500 text-white py-2 px-4 rounded-md mt-4 transition transform hover:scale-105"
                 >
-                  <FontAwesomeIcon icon={faReceipt} /> Generate Receipt
+                  Generate Receipt
                 </button>
               ) : (
                 <p className="text-green-600 mt-4">

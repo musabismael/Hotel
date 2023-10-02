@@ -114,7 +114,8 @@ const Sidebar = () => {
     console.log(`Card with ID ${id} clicked`);
   };
   return (
-    <aside className="fixed p-4 w-1/5 h-screen overflow-y-auto bg-gray-200">
+    <aside className="fixed p-4 w-1/5  overflow-y-auto  bg-gray-200">
+      <ul className="list-none space-y-2">
         {cardData.map((card) => (
           <Card
             key={card.id}
@@ -124,6 +125,7 @@ const Sidebar = () => {
             onClick={() => handleCardClick(card.id)}
           />
         ))}
+      </ul>
       {/* Add more content or widgets to your sidebar */}
     </aside>
   );

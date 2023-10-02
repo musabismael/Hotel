@@ -124,6 +124,7 @@ const Sidebar = () => {
             onClick={() => handleCardClick(card.id)}
           />
         ))}
+      </ul>
       {/* Add more content or widgets to your sidebar */}
     </aside>
   );

@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faCheck, faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
-import '../styles/ReservationHome.css'; // Import your CSS file for animations
+import './.s/ReservationHome.css'; // Import your CSS file for animations
 
 const ITEMS_PER_PAGE = 5;
 

@@ -7,7 +7,7 @@ import {
   faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
 
-import "../styles/GuestCheckOut.css"; // Import your CSS file here
+import "..//GuestCheckOut.css"; // Import your CSS file here
 
 const GuestCheckOut = () => {
   const [reservationId, setReservationId] = useState("");

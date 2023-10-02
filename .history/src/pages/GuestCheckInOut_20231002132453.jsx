@@ -7,7 +7,7 @@ import {
   faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
 
-import "../styles/GuestCheckOut.css"; // Import your CSS file here
+import "./GuestCheckOut.css"; // Import your CSS file here
 
 const GuestCheckOut = () => {
   const [reservationId, setReservationId] = useState("");
@@ -190,8 +190,3 @@ const GuestCheckOut = () => {
         )}
         {error && <p className="text-red-500 mt-2">{error}</p>}
       </div>
-    </div>
-  );
-};
-
-export default GuestCheckOut;

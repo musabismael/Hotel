@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit, faCheck, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import '../styles/RoomManagement.css'; // Import your CSS file here
+import '../s/RoomManagement.css'; // Import your CSS file here
 
 const RoomManagement = () => {
   const [roomTypes, setRoomTypes] = useState([

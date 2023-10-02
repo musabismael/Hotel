@@ -1,0 +1,14 @@
+/* Button Hover Animation */
+.transition {
+    transition-property: background-color, color, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+  
+  /* Button Hover Scale Effect */
+  .transform:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Add more animation classes if needed */
+  

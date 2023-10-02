@@ -53,23 +53,20 @@ const ReportingAnalytics = () => {
         {/* Render tab content based on selectedTab */}
         {selectedTab === "overview" && (
           <div>
-            <h3 className="text-lg font-semibold mb-2">Overview Tab</h3>
-            <p>Here is an overview of your analytics data.</p>
-            {/* Add more overview content here */}
+            {/* Add your overview content here */}
+            <p>Overview tab content goes here.</p>
           </div>
         )}
         {selectedTab === "calendar" && (
           <div>
-            <h3 className="text-lg font-semibold mb-2">Calendar Tab</h3>
-            <p>View your analytics data on a calendar.</p>
-            {/* Add more calendar content here */}
+            {/* Add your calendar content here */}
+            <p>Calendar tab content goes here.</p>
           </div>
         )}
         {selectedTab === "data" && (
           <div>
-            <h3 className="text-lg font-semibold mb-2">Data Tab</h3>
-            <p>Explore detailed analytics data.</p>
-            {/* Add more data content here */}
+            {/* Add your data content here */}
+            <p>Data tab content goes here.</p>
           </div>
         )}
       </div>

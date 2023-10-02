@@ -1,9 +1,10 @@
+
+
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faCheck, faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
-import '../styles/ReservationHome.css'; // Import your CSS file for animations
+import { faTrash, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const ITEMS_PER_PAGE = 5;
 
@@ -193,8 +194,8 @@ const ReservationHome = () => {
           {isExceedingMaxOccupancy && (
             <p className="text-red-500">Exceeding maximum occupancy for the room.</p>
           )}
-          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md transition transform hover:scale-105">
-            <FontAwesomeIcon icon={faCheck} /> Submit
+          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">
+            Submit
           </button>
         </form>
       </div>
@@ -208,7 +209,7 @@ const ReservationHome = () => {
                     page + 1 === currentPage
                       ? 'bg-blue-500 text-white'
                       : 'bg-gray-200 text-gray-700 hover:bg-blue-500 hover:text-white'
-                  } py-2 px-3 rounded-md transition transform hover:scale-105`}
+                  } py-2 px-3 rounded-md`}
                   onClick={() => setCurrentPage(page + 1)}
                 >
                   {page + 1}
@@ -222,36 +223,37 @@ const ReservationHome = () => {
         <div className="lg:w-1/2 lg:pr-4">
           <h2 className="text-lg text-gray-800 font-semibold">Reservations</h2>
           <ul className="mt-2">
+            {/* List of reservations */}
             {displayedReservations.map((reservation, index) => (
-              <li key={index} className="border rounded-md p-2 mb-2">
-                <strong className="text-gray-800">{reservation.name}</strong>
-                <p>
-                  Check-In: {reservation.checkInDate} - Check-Out: {reservation.checkOutDate}
-                </p>
-                <p>Status: {reservation.status}</p>
-                <p>Room Type: {reservation.roomType}</p>
-                <p>
-                  Guests: {reservation.numAdults} Adults, {reservation.numChildren} Children
-                </p>
-                <button
-                  onClick={() => deleteReservation(index)}
-                  className="bg-red-500 text-white py-1 px-2 rounded-md ml-2 transition transform hover:scale-105"
-                >
-                  <FontAwesomeIcon icon={faTrash} /> Delete
-                </button>
-                <button
-                  onClick={() => updateReservationStatus(index, 'Confirmed')}
-                  className="bg-green-500 text-white py-1 px-2 rounded-md ml-2 transition transform hover:scale-105"
-                >
-                  <FontAwesomeIcon icon={faCheck} /> Confirm
-                </button>
-                <button
-                  onClick={() => updateReservationStatus(index, 'Cancelled')}
-                  className="bg-yellow-500 text-white py-1 px-2 rounded-md ml-2 transition transform hover:scale-105"
-                >
-                  <FontAwesomeIcon icon={faTimes} /> Cancel
-                </button>
-              </li>
+               <li key={index} className="border rounded-md p-2 mb-2">
+               <strong className="text-gray-800">{reservation.name}</strong>
+               <p>
+                 Check-In: {reservation.checkInDate} - Check-Out: {reservation.checkOutDate}
+               </p>
+               <p>Status: {reservation.status}</p>
+               <p>Room Type: {reservation.roomType}</p>
+               <p>
+                 Guests: {reservation.numAdults} Adults, {reservation.numChildren} Children
+               </p>
+               <button
+                 onClick={() => deleteReservation(index)}
+                 className="bg-red-500 text-white py-1 px-2 rounded-md ml-2"
+               >
+                 <FontAwesomeIcon icon={faTrash} /> Delete
+               </button>
+               <button
+                 onClick={() => updateReservationStatus(index, 'Confirmed')}
+                 className="bg-green-500 text-white py-1 px-2 rounded-md ml-2"
+               >
+                 <FontAwesomeIcon icon={faCheck} /> Confirm
+               </button>
+               <button
+                 onClick={() => updateReservationStatus(index, 'Cancelled')}
+                 className="bg-yellow-500 text-white py-1 px-2 rounded-md ml-2"
+               >
+                 <FontAwesomeIcon icon={faTimes} /> Cancel
+               </button>
+             </li>
             ))}
           </ul>
         </div>
@@ -275,6 +277,7 @@ const ReservationHome = () => {
       <div className="mt-4">
         <nav className="flex justify-center">
           <ul className="flex">
+            {/* Pagination buttons */}
             {Array.from({ length: totalPageCount }).map((_, page) => (
               <li key={page} className="ml-2">
                 <button
@@ -282,7 +285,7 @@ const ReservationHome = () => {
                     page + 1 === currentPage
                       ? 'bg-blue-500 text-white'
                       : 'bg-gray-200 text-gray-700 hover:bg-blue-500 hover:text-white'
-                  } py-2 px-3 rounded-md transition transform hover:scale-105`}
+                  } py-2 px-3 rounded-md`}
                   onClick={() => setCurrentPage(page + 1)}
                 >
                   {page + 1}
